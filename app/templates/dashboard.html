@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Usuarios</h1>
+    <a href="{{ url_for('create_user') }}">Crear Usuario</a>
+    <ul>
+        {% for user in users %}
+            <li>
+                {{ user.username }} ({{ user.email }})
+                <a href="{{ url_for('update_user', id=user.id) }}">Actualizar</a>
+                <a href="{{ url_for('delete_user', id=user.id) }}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+</body>
+</html>
